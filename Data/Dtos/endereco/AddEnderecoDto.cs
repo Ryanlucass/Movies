@@ -9,5 +9,8 @@ namespace FilmesAPI.Data.Dtos
         public string Logradouro { get; set; }
         public string Bairoo { get; set; }
         public string Numero { get; set; }
+
+        [Required]
+        public string Cep { get; set; }
     }
 }

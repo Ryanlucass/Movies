@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Dapper;
 using System;
+using FilmesAPI.Api;
 
 namespace FilmesAPI.Services
 {
@@ -28,13 +29,22 @@ namespace FilmesAPI.Services
         /// <returns></returns>
         public AddEnderecoDto AdicionaEndereco(AddEnderecoDto enderecoDto)
         {
+            //implementar a configuração da api
+           var api = CepApi.GetResponse(enderecoDto.Cep);
+
+            
+
             if (enderecoDto != null)
             {
                 Endereco endereco = new()
                 {
-                    Logradouro = enderecoDto.Logradouro,
-                    Bairoo = enderecoDto.Bairoo,
+                    //Logradouro = enderecoDto.Logradouro,
+                    //Bairoo = enderecoDto.Bairoo,
+                    //Numero = enderecoDto.Numero,
+                    Logradouro = api.Logradouro,
+                    Bairoo = api.Bairro,
                     Numero = enderecoDto.Numero,
+                    Cep = api.Cep
                 };
 
                 _context.Enderecos.Add(endereco);
@@ -45,7 +55,9 @@ namespace FilmesAPI.Services
                     Id = endereco.Id,
                     Bairoo = endereco.Bairoo,
                     Logradouro = endereco.Logradouro,
-                    Numero = endereco.Numero
+                    Numero = endereco.Numero,
+                    Cep = endereco.Cep
+                    
                 };
 
                 var result = _context.Enderecos.Add(endereco).CurrentValues;

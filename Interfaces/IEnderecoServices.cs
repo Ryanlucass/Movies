@@ -1,4 +1,5 @@
-﻿using FilmesAPI.Data.Dtos;
+﻿using FilmesAPI.Api;
+using FilmesAPI.Data.Dtos;
 using FilmesAPI.Models;
 using System.Collections.Generic;
 
