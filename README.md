@@ -23,6 +23,7 @@
 - ORM (Entity Framework, Dapper)
 - C# (ASP NET Core 5)
 - JWT token (Atualizando)
+- Consumindo a API ViaCep
 
 # Referência da API 
 ## Cinema
